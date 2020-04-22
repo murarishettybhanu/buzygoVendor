@@ -1,0 +1,48 @@
+@layout('layout.vendor')
+@section('content')
+
+<div class="container pt-3">
+    <h4><b>Settings</b></h4>
+    <div class="row">
+        <div class="col-md-6  mt-5">
+            <div class="form-inline">
+                <input type="text" class="form-control" placeholder="Store Name" name="" id="">
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+            <div class="form-inline mt-5">
+                <input type="text" class="form-control" placeholder="Store Area" name="" id="">
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+            <div class="form-inline mt-5">
+                <textarea name="" placeholder="Store Address" class="form-control"></textarea>
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+            <div class="form-inline mt-5">
+                <input type="text" class="form-control" placeholder="Store Website" name="" id="">
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+            <div class="form-inline mt-5">
+                <input type="text" class="form-control" placeholder="Store Number" name="" id="">
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+            <div class="form-inline mt-5">
+                <input type="email" class="form-control" placeholder="Store Email" name="" id="">
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+            <img src="" id="profile_pic" alt="">
+
+            <div class="form-inline mt-4">
+                <p class="mt-3"><b>Store Images</b></p>
+                <img src="/images/edit.png" class="ml-3" alt="">
+            </div>
+            <input type="password" name="" placeholder="Current Password" id="" class="form-control mt-5">
+            <input type="password" name="" id="" placeholder="New Password" class="form-control mt-5">
+            <input type="password" name="" id="" placeholder="Confirm Password" class="form-control mt-5">
+            <button class="btn btn-dark mt-5 float-right">Confirm</button>
+        </div>
+    </div>
+</div>
+
+@endsection
