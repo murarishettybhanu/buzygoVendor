@@ -43,45 +43,35 @@
     <div class="mt-5">
         <div class="form-inline col-md-5">
             <h5>Outlets</h5>
+            @if(getStoreByUser.status != 200)
             <a href="/vendor/create/store" class="btn btn-dark ml-auto"><i class="fas fa-plus"></i>Add New</a>
+            @endif
         </div>
     </div>
 
     <div class="row mt-4">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="card p-2">
-                    <div class="card-body">
-                        <img src="https://sc01.alicdn.com/kf/HTB1xPWubh285uJjSZFGq6xDmpXaW/Retail-Clothes-Rack-Shop-Fittings-For-Garment.jpg"
-                            height="75%" width="100%" class="rounded" alt="">
-                        <img src="https://bit.ly/2z6hUwd" id="company_logo" class="mt-3" alt="">
-                        Lee,Kachiguda
-                        <img src="/images/edit.png" class="float-right mt-3" alt="">
+            @if(getStoreByUser.status == 200)
+            <a href="/vendor/panel/offers">
+                <div class="col-sm-5">
+                    <div class="card p-2">
+                        <div class="card-body">
+                            <img src="https://sc01.alicdn.com/kf/HTB1xPWubh285uJjSZFGq6xDmpXaW/Retail-Clothes-Rack-Shop-Fittings-For-Garment.jpg"
+                                height="75%" width="100%" class="rounded" alt="">
+                            <div class="row">
+                                <div class="col-3"><img src="https://bit.ly/2z6hUwd" id="company_logo" class="mt-3"
+                                        alt="">
+                                </div>
+                                <div class="col-7 mt-3">{{getStoreByUser.store_name}}
+                                    <p>{{getStoreByUser.address1}}</p>
+                                </div>
+                                <div class="col-2"><img src="/images/edit.png" class="float-right mt-3" alt=""></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card p-2">
-                    <div class="card-body">
-                        <img src="https://sc01.alicdn.com/kf/HTB1xPWubh285uJjSZFGq6xDmpXaW/Retail-Clothes-Rack-Shop-Fittings-For-Garment.jpg"
-                            height="75%" width="100%" class="rounded" alt="">
-                        <img src="https://bit.ly/2z6hUwd" id="company_logo" class="mt-3" alt="">
-                        Lee,Kachiguda
-                        <img src="/images/edit.png" class="float-right mt-3" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card p-2">
-                    <div class="card-body">
-                        <img src="https://sc01.alicdn.com/kf/HTB1xPWubh285uJjSZFGq6xDmpXaW/Retail-Clothes-Rack-Shop-Fittings-For-Garment.jpg"
-                            height="75%" width="100%" class="rounded" alt="">
-                        <img src="https://bit.ly/2z6hUwd" id="company_logo" class="mt-3" alt="">
-                        Lee,Kachiguda
-                        <img src="/images/edit.png" class="float-right mt-3" alt="">
-                    </div>
-                </div>
-            </div>
+            </a>
+            @endif
         </div>
     </div>
 

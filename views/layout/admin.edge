@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Buzygo</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -22,13 +22,15 @@
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
-<body>
+<body onload="myFunction()">
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" style="height: 100vh;position: fixed;">
             <div class="sidebar-header form-inline">
                 <h3><span style="font-size: 25px;"><b>Buzygo | </b></span> <span style="font-size: 12px;">Vendor
                         Admin</span>
@@ -44,8 +46,8 @@
                 </div>
                 <div class="col-md-6 mt-2">
                     <div class="mr-3">
-                        Vendor Name <br>
-                        Vendor Area <br>
+                        {{getUserDetails.username}} <br>
+                        {{getUserDetails.address}} <br>
                         Vendor Id
                     </div>
                 </div>
@@ -72,20 +74,20 @@
                 <li>
                     <a href="#">
                         <i class="fas fa-envelope"></i>
-                        Messages
+                        Chats
                     </a>
                 </li>
             </ul>
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">
+                    <a href="/vendor/panel/settings">
                         <i class="fas fa-cog"></i>
                         Settings
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/logout">
                         <i class="fas fa-sign-out-alt"></i>
                         Logout
                     </a>

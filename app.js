@@ -18,10 +18,13 @@ const vendorAdminStoreRouter = require("./routes/vendorAdminStore");
 const vendorPanelOffersRouter = require("./routes/vendorPanelOffers");
 const vendorPanelSettingsRouter = require("./routes/vendorPanelSettings");
 const vendorPanelPostsRouter = require("./routes/vendorPanelPosts");
-const vendorAdminLoginRouter = require("./routes/vendorAdminLogin");
 const vendorCreateStoreRouter = require("./routes/vendorCreateStore");
 const vendorAdminLoginUserRouter = require("./routes/vendorAdminLoginUser");
 const vendorSaveStoreRouter = require("./routes/vendorSaveStore");
+const storeSaveOfferRouter = require("./routes/storeSaveOffer");
+const storeSavePostRouter = require("./routes/storeSavePost");
+const vendorHomePageRouter = require("./routes/vendorHomePage");
+const logoutRouter = require("./routes/logout");
 
 var app = express();
 
@@ -55,16 +58,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', indexRouter);
 app.get('/vendor/admin/register', vendorAdminRegisterRouter);
-app.get('/vendor/admin/login', vendorAdminLoginRouter);
 app.get('/vendor/create/store', vendorCreateStoreRouter);
 app.get('/vendor/panel/offers', vendorPanelOffersRouter);
 app.get('/vendor/panel/settings', vendorPanelSettingsRouter);
 app.get('/vendor/panel/posts', vendorPanelPostsRouter);
+app.get('/vendor/home/page', vendorHomePageRouter);
+app.get('/logout', logoutRouter);
 
 app.post('/vendor/admin/store', vendorAdminStoreRouter);
 app.post('/vendor/admin/loginUser', vendorAdminLoginUserRouter);
 app.post('/vendor/save/store', vendorSaveStoreRouter);
-
+app.post('/store/save/offer', storeSaveOfferRouter);
+app.post('/store/save/post', storeSavePostRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

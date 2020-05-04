@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>Buzygo</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
@@ -21,14 +21,15 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
-<body>
+<body onload="myFunction()">
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" style="height: 100vh;position: fixed;">
             <div class="sidebar-header form-inline">
                 <h3><span style="font-size: 25px;"><b>Buzygo | </b></span> <span style="font-size: 12px;">Vendor
                         Admin</span>
@@ -44,45 +45,28 @@
                 </div>
                 <div class="col-md-6 mt-2">
                     <div class="mr-3">
-                        Vendor Name <br>
-                        Vendor Area <br>
+                        {{getUserDetails.username}} <br>
+                        {{getUserDetails.address}} <br>
                         Vendor Id
                     </div>
                 </div>
             </div>
 
             <ul class="list-unstyled components">
-                <!-- <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fas fa-home"></i>
-                        Home
-                    </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li> -->
                 <li>
                     <a href="#">
                         <i class="fas fa-envelope"></i>
-                        Messages
+                        Chats
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/vendor/panel/posts">
                         <i class="fas fa-globe"></i>
                         Posts
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/vendor/panel/offers">
                         <i class="fas fa-percent"></i>
                         Offers
                     </a>
@@ -91,13 +75,13 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#">
+                    <a href="/vendor/panel/settings">
                         <i class="fas fa-cog"></i>
                         Settings
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/logout">
                         <i class="fas fa-sign-out-alt"></i>
                         Logout
                     </a>
@@ -108,7 +92,8 @@
 
         <div id="content">
 
-            <button type="button" id="sidebarCollapse" class="btn btn-info d-lg-none" style="background-color: black;">
+            <button type="button" id="sidebarCollapse" onclick="sidebarSet()" class="btn btn-info d-lg-none"
+                style="background-color: black;">
                 <i class="fas fa-align-left"></i>
                 <span>Toggle Sidebar</span>
             </button>
@@ -136,6 +121,17 @@
                     $('#sidebar').toggleClass('active');
                 });
             });
+        </script>
+        <script>
+            function sidebarSet() {
+                let sidebar = document.getElementById("sidebar");
+                if (!sidebar.classList.contains("active")) {
+                    document.getElementById("content").style.marginLeft = "80px";
+                }
+                else {
+                    document.getElementById("content").style.marginLeft = "0px";
+                }
+            }
         </script>
 </body>
 

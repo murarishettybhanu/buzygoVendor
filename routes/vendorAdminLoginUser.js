@@ -9,17 +9,17 @@ module.exports = async (req, res) => {
                 req.session.token = response.data.token;
                 req.session.user_id = response.data.user_id;
                 req.flash('LoginSuccess', 'Login Was Successful')
-                res.redirect('/');
+                res.redirect('/vendor/home/page');
                 console.log(response);
                 return response;
             })
             .catch(function (error) {
                 req.flash('LoginFail', 'Login Failed')
-                res.redirect('/vendor/admin/login');
+                res.redirect('/');
                 console.log(error);
             });
     } catch (error) {
         console.log("[vendorAdminLoginUser e]", error);
-        res.render("/vendor/admin/login")
+        res.render("/")
     }
 }
